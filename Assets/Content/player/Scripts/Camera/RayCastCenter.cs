@@ -4,7 +4,7 @@ public class RayCast : MonoBehaviour
 {
     public float endOfray = 3;
     public Vector3 endOfrayPos;
-    RaycastHit hit;
+    public RaycastHit hit;
     void FixedUpdate(){
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
@@ -24,10 +24,10 @@ public class RayCast : MonoBehaviour
             GUI.Label(new Rect(Screen.width/2, 50, 750, 750), "Name = " + hit.collider.name + "\nTag = " + hit.collider.tag);
             switch(hit.collider.tag){
                 case "enemy":
-                    Debug.Log("Это странное существо...");
+                    //Debug.Log("Это странное существо...");
                     break;
                 case "pickupable":
-                    Debug.Log("ПОДНИМИ ЭТО!");
+                    //Debug.Log("ПОДНИМИ ЭТО!");
                     break;
             }
         }
