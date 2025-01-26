@@ -22,6 +22,5 @@ public class CameraController : MonoBehaviour
         rotationY-=mouseY;
         rotationY = Mathf.Clamp(rotationY,-90f,90f);
         transform.localRotation = Quaternion.Euler(rotationY,0,0); // up/down
-
     }
 }
