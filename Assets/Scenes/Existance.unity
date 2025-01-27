@@ -1817,7 +1817,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1102944105}
   - component: {fileID: 1102944104}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: PostProcessing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1849,8 +1849,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1102944103}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 6, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.000061035156, y: 6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2190,5 +2190,5 @@ SceneRoots:
   - {fileID: 1761870698}
   - {fileID: 930341756}
   - {fileID: 17020827}
-  - {fileID: 1102944105}
   - {fileID: 591966720}
+  - {fileID: 1102944105}
