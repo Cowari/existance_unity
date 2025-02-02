@@ -764,9 +764,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc934f61505c9d440a890e3b1918ed17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grab_pos: {fileID: 542025215}
-  rayCast: {fileID: 963194230}
-  isGrab: 0
+  grabPosRot: {fileID: 542025215}
+  rayCast: {fileID: 963194234}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1129,8 +1128,8 @@ GameObject:
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
   - component: {fileID: 963194229}
-  - component: {fileID: 963194230}
-  - component: {fileID: 963194231}
+  - component: {fileID: 963194234}
+  - component: {fileID: 963194233}
   - component: {fileID: 963194232}
   m_Layer: 0
   m_Name: Camera
@@ -1227,35 +1226,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04386dc5f4aada6488c1d56110beb8f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  person: {fileID: 642588533}
+  playerObject: {fileID: 642588533}
   sensetivity: 1000
---- !u!114 &963194230
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 963194225}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 985140cc8a0c63c44b4fb55ec9acc5dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  endOfray: 100
-  endOfrayPos: {x: 0, y: 0, z: 0}
---- !u!114 &963194231
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 963194225}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63eccc860d3568e4183f08660c06e4bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  point: {fileID: 1761870695}
 --- !u!114 &963194232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1310,12 +1282,37 @@ MonoBehaviour:
       colorBlindnessType: 0
       colorBlindnessStrength: 1
   m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
-  m_ShowToolkit: 1
+  m_ShowToolkit: 0
   m_ShowCustomSorter: 1
   breakBeforeColorGrading: 0
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
+--- !u!114 &963194233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63eccc860d3568e4183f08660c06e4bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  point: {fileID: 1761870695}
+--- !u!114 &963194234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d04e6646e02dc31449e8501984948fc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1024411618
 GameObject:
   m_ObjectHideFlags: 0

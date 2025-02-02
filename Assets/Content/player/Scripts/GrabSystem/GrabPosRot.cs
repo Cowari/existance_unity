@@ -16,24 +16,23 @@ public class GrabPosRot : MonoBehaviour
         scrollDist = midDist;
     }
 
-    void Update()
-    {
-        isGrab = grabObjects.GrabVal();
-        NewPos();
+    void Update(){
+        isGrab = grabObjects.getGrab();
         //Debug.Log(scrollDist);
         
+        newDistance = NewPos();
         transform.localPosition = newDistance;
     }
 
-    void NewPos(){
+    Vector3 NewPos(){
         if(isGrab) scrollDist += Input.GetAxis("Mouse ScrollWheel");
         else scrollDist = midDist;
-        scrollDist = Mathf.Clamp(scrollDist, minDist, minDist*2);
+        scrollDist = Mathf.Clamp(scrollDist, minDist, maxDist);
 
-        newDistance = new Vector3(0,0,scrollDist);
+        return new Vector3(0,0,scrollDist);
     }
 
-    public Vector3 get_newDistance(){
+    public Vector3 getNewDistance(){
         return newDistance;
     }
 }
