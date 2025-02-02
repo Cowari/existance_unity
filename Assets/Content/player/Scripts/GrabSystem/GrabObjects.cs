@@ -12,7 +12,7 @@ namespace Player.GrabSystem{
 
         GameObject grbd_obj; // объект который мы перемещаем
         Rigidbody rigbd_obj; // переменная для RB перемещаемого объекта
-        const float smoothSpeed = 4f;
+        [SerializeField] private float smoothSpeed = 4f;
         bool isGrab;
 
         void Update(){
@@ -36,36 +36,39 @@ namespace Player.GrabSystem{
                 isGrab = true;
                 grbd_obj = collider.gameObject;
                 rigbd_obj = grbd_obj.GetComponent<Rigidbody>();
-                return;
             }
         }
 
         void Grab(){
-            if(grbd_obj==null && rigbd_obj==null){
+            if(IsObjectNotValid()){
                 return;
             }
-            else{
-                rigbd_obj.excludeLayers = PlayerLayMask;
-                rigbd_obj.useGravity = false;
-                //rigbd_obj.isKinematic = true;
+            
+            rigbd_obj.excludeLayers = PlayerLayMask;
+            rigbd_obj.useGravity = false;
 
-                grbd_obj.transform.rotation = Quaternion.Lerp(grbd_obj.transform.rotation, grabPosRot.rotation, smoothSpeed * Time.deltaTime);
+            if(Quaternion.Angle(grbd_obj.transform.rotation, grabPosRot.rotation) > 0.01f){
+                    grbd_obj.transform.rotation = Quaternion.Lerp(grbd_obj.transform.rotation, grabPosRot.rotation, smoothSpeed * Time.deltaTime);
+            }
+            if(Vector3.Distance(grbd_obj.transform.position, grabPosRot.position) > 0.01f){
                 grbd_obj.transform.position = Vector3.Lerp(grbd_obj.transform.position, grabPosRot.position, smoothSpeed * Time.deltaTime);
             }
         }
         
         void Drop(){
-            if(grbd_obj==null && rigbd_obj==null){
+            if(IsObjectNotValid()){
                 return;
             }
-            else{
-                rigbd_obj.excludeLayers = NothingLayMask;
-                rigbd_obj.useGravity = true;
-                //rigbd_obj.isKinematic = false; 
+            
+            rigbd_obj.excludeLayers = NothingLayMask;
+            rigbd_obj.useGravity = true;
                 
-                grbd_obj = null;
-                rigbd_obj = null;
-            }
+            grbd_obj = null;
+            rigbd_obj = null;
+        }
+
+        private bool IsObjectNotValid(){
+            return grbd_obj==null && rigbd_obj==null;
         }
 
         public bool getGrab(){
