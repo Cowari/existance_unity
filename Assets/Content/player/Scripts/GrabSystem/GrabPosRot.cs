@@ -1,4 +1,5 @@
 using UnityEngine;
+using Player.GrabSystem;
 public class GrabPosRot : MonoBehaviour
 {
     public GrabObjects grabObjects;
