@@ -3,13 +3,13 @@ using UnityEngine;
 public class PointScript : MonoBehaviour
 {
     public GameObject point;
-    RayCast rayCast;
+    RayCastSystem rayCast;
     void Start(){
-        rayCast = GetComponent<RayCast>();
+        rayCast = GetComponent<RayCastSystem>();
         
     }
 
     void Update(){
-        point.transform.position = rayCast.endOfrayPos;
+        point.transform.position = rayCast.getEndRayPos();
     }
 }
