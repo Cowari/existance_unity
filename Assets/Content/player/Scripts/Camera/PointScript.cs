@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PointScript : MonoBehaviour
 {
-    public GameObject point;
+    public GameObject objPoint;
     RayCastSystem rayCast;
     void Start(){
         rayCast = GetComponent<RayCastSystem>();
@@ -10,6 +10,6 @@ public class PointScript : MonoBehaviour
     }
 
     void Update(){
-        point.transform.position = rayCast.getEndRayPos();
+        objPoint.transform.position = rayCast.GetEndRayPos();
     }
 }

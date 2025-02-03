@@ -9,7 +9,6 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-
         float v = Input.GetAxis("Vertical") * movementSpeed * Time.deltaTime;
         float h = Input.GetAxis("Horizontal") * movementSpeed * Time.deltaTime;
         if(v!=0 || h!=0) isMoving = true;
@@ -17,7 +16,6 @@ public class PlayerMovement : MonoBehaviour
         transform.Translate(h, 0, v);
         
         if (Input.GetKeyDown(KeyCode.LeftShift)) isRunning = true;
-        if (Input.GetKeyUp(KeyCode.LeftShift)) isRunning = false;
-           
+        if (Input.GetKeyUp(KeyCode.LeftShift)) isRunning = false;   
     }
 }

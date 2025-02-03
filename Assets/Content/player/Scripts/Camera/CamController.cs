@@ -4,7 +4,7 @@ public class CameraController : MonoBehaviour
 {
     [Header("Настройки:")]
     public GameObject playerObject;
-    public float sensetivity = 1000f;
+    public float mouseSensitivityScale  = 1000f;
 
     float rotationY;
 
@@ -15,8 +15,8 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
-        float mouseX = Input.GetAxis("Mouse X") * sensetivity * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * sensetivity * Time.deltaTime;
+        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivityScale * Time.deltaTime;
+        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivityScale * Time.deltaTime;
         
         
         playerObject.transform.Rotate(Vector3.up, mouseX); // left/right
