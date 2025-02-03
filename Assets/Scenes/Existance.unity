@@ -407,7 +407,7 @@ GameObject:
   m_Component:
   - component: {fileID: 542025215}
   - component: {fileID: 542025216}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GrabPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -561,7 +561,7 @@ GameObject:
   - component: {fileID: 642588541}
   - component: {fileID: 642588542}
   - component: {fileID: 642588543}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -766,6 +766,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grabPosRot: {fileID: 542025215}
   rayCast: {fileID: 963194234}
+  PlayerLayMask:
+    serializedVersion: 2
+    m_Bits: 64
+  NothingLayMask:
+    serializedVersion: 2
+    m_Bits: 0
+  smoothSpeed: 4
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1131,7 +1138,7 @@ GameObject:
   - component: {fileID: 963194234}
   - component: {fileID: 963194233}
   - component: {fileID: 963194232}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -1433,7 +1440,7 @@ GameObject:
   - component: {fileID: 1024610778}
   - component: {fileID: 1024610777}
   - component: {fileID: 1024610780}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
