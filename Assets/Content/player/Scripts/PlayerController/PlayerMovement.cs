@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -15,7 +16,15 @@ public class PlayerMovement : MonoBehaviour
         else isMoving = false;
         transform.Translate(h, 0, v);
         
+<<<<<<< HEAD
         if (Input.GetKeyDown(KeyCode.LeftShift)) isRunning = true;
         if (Input.GetKeyUp(KeyCode.LeftShift)) isRunning = false;   
+=======
+        isRunning = GetKeyShift();
+    }
+
+    private bool GetKeyShift(){
+        return Keyboard.current.shiftKey.isPressed;
+>>>>>>> feature/stamina-system
     }
 }
