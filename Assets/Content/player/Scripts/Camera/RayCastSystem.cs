@@ -14,7 +14,7 @@ public class RayCastSystem : MonoBehaviour{
         }
     }
 
-    public Vector3 getEndRayPos(){
+    public Vector3 GetEndRayPos(){
         return endRayPos;
     }
 
