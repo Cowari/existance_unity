@@ -2,29 +2,37 @@ using UnityEngine;
 using TMPro;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.InputSystem;
 
 public class DialogueText : MonoBehaviour
 {
+    [Header("Настройки:")]
     [SerializeField] List<string> paragraphs = new List<string>();
+    [SerializeField] float tremorStrength = 2f;
+    [SerializeField] float textAnimSpeed = 0.07f;
+
     public TextMeshProUGUI myText;
 
     private Coroutine symbolAppearCoroutine;
-    float tremorStrength = 2f;
-    float textAnimSpeed = 0.07f;
-    bool tremorActive = true;
-    int pIndex = 0; // paragraph index
-    string symbols;
-    Vector3 pos;
+    private bool tremorActive = true;
+    private int pIndex = 0; // paragraph index
+    private string symbols;
+    private Vector3 pos;
 
+    private ITremorManager tremorManager;
+    private IInputHandler inputHandler;
 
     void Start(){
         pos = myText.transform.position;
+
+        tremorManager = new TremorManager(myText, tremorStrength, pos);
+        inputHandler = new InputHandler();
+
         symbolAppearCoroutine = StartCoroutine(SymbolAppear());
     }
 
     void Update(){
-        if(DialogContinueButton()){ // Если кнопка для продолжения нажата
+        if(inputHandler.CheckDialogContinueButton()) // Если кнопка для продолжения нажата.
+        {
             tremorActive = true;
             if(symbolAppearCoroutine == null){
                 symbols = null;
@@ -33,33 +41,20 @@ public class DialogueText : MonoBehaviour
             }
         }
 
-        if(tremorActive){
-            float x = Random.Range(pos.x + tremorStrength, pos.x - tremorStrength);
-            float y = Random.Range(pos.y + tremorStrength, pos.y - tremorStrength);
-
-            Vector2 newPos = new Vector2(x, y);
-            myText.transform.position = newPos;
-        }
+        tremorManager.UpdateTremor(tremorActive);
 
         myText.text = symbols;
-
     }
 
-    IEnumerator SymbolAppear()
-    {
-        while(true && tremorActive){
+    IEnumerator SymbolAppear(){
+        while(tremorActive)
+        {
             foreach(char c in paragraphs[pIndex]){
                 symbols += c;
-
                 yield return new WaitForSeconds(textAnimSpeed);
             }
             tremorActive = false;
             symbolAppearCoroutine = null;
         }
     }
-
-    private bool DialogContinueButton(){
-        return Keyboard.current.spaceKey.isPressed || Mouse.current.leftButton.isPressed;
-    }
-
 }
