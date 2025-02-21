@@ -12,7 +12,8 @@ public class TremorManager : ITremorManager
     private Vector3 defPos; // Default position.
 
     public TremorManager(TextMeshProUGUI text, float strength, Vector3 position){
-        myText = text;
+        myText = text ?? throw new System.ArgumentNullException(nameof(text)); // если text==null, то выкидывается исключение
+
         tremorStrength = strength;
         defPos = position;
     }
@@ -24,9 +25,7 @@ public class TremorManager : ITremorManager
             myText.transform.position = new Vector2(x, y);
         }
         else{
-            if(myText.transform.position != defPos){
-                myText.transform.position = defPos;
-            }
+            myText.transform.position = defPos;
         }
     }
 }
